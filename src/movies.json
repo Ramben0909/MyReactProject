@@ -1,0 +1,65 @@
+{
+    "movies" : [
+        {
+            "title": "Inception",
+            "releasing_year": 2010,
+            "studio": "Warner Bros.",
+            "description": "A skilled thief, who steals corporate secrets through dream-sharing technology, is given the inverse task of planting an idea into the mind of a C.E.O."
+        },
+        {
+            "title": "The Dark Knight",
+            "releasing_year": 2008,
+            "studio": "Warner Bros.",
+            "description": "Batman sets out to dismantle the remaining criminal organizations that plague Gotham City, but he soon finds himself prey to a reign of chaos unleashed by a rising criminal mastermind known as The Joker."
+        },
+        {
+            "title": "Forrest Gump",
+            "releasing_year": 1994,
+            "studio": "Paramount Pictures",
+            "description": "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart."
+        },
+        {
+            "title": "The Matrix",
+            "releasing_year": 1999,
+            "studio": "Warner Bros.",
+            "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."
+        },
+        {
+            "title": "The Godfather",
+            "releasing_year": 1972,
+            "studio": "Paramount Pictures",
+            "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son."
+        },
+        {
+            "title": "Pulp Fiction",
+            "releasing_year": 1994,
+            "studio": "Miramax",
+            "description": "The lives of two mob hitmen, a boxer, a gangster, and his wife intertwine in four tales of violence and redemption."
+        },
+        {
+            "title": "The Shawshank Redemption",
+            "releasing_year": 1994,
+            "studio": "Columbia Pictures",
+            "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
+        },
+        {
+            "title": "Fight Club",
+            "releasing_year": 1999,
+            "studio": "20th Century Fox",
+            "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more."
+        },
+        {
+            "title": "The Lord of the Rings: The Fellowship of the Ring",
+            "releasing_year": 2001,
+            "studio": "New Line Cinema",
+            "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron."
+        },
+        {
+            "title": "Star Wars: Episode IV - A New Hope",
+            "releasing_year": 1977,
+            "studio": "20th Century Fox",
+            "description": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee, and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader."
+        }
+    ]
+    
+}
