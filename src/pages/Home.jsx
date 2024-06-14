@@ -7,6 +7,6 @@ const Home = () => {
       <Tablist />
     </div>
   );
-}
+};
 
 export default Home;
