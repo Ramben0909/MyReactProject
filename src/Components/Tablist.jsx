@@ -18,32 +18,39 @@ const Tablist = () => {
         setLoading(false);
       }
     };
-
     fetchMovies();
   }, []);
 
-  return (
-    <div className="container mx-auto mt-8">
-      {loading ? (
-        <Spinner loading={loading} /> // Assuming Spinner component displays a loading indicator
-      ) : (
-        movies.length > 0 ? ( // Check if movies have data before rendering
-          <div className="grid grid-cols-3 gap-4">
-            {movies.map((movie, index) => (
-              <Tab
-                key={movie.id}
-                title={movie.title}
-                description={movie.description}
-                studio={movie.studio}
-                year={movie.releasing_year}
-              />
-            ))}
+  if (loading) {
+      return (
+          <div className="container mx-auto mt-8">
+              <Spinner loading={loading} />
           </div>
-        ) : (
-          <p>No movies found.</p> // Optional: Display a message if no movies are fetched
-        )
-      )}
-    </div>
+      );
+  }
+  
+  if (movies.length > 0) {
+      return (
+          <div className="container mx-auto mt-8">
+              <div className="grid grid-cols-3 gap-4">
+                  {movies.map((movie, index) => (
+                      <Tab
+                          key={movie.id}
+                          title={movie.title}
+                          description={movie.description}
+                          studio={movie.studio}
+                          year={movie.releasing_year}
+                      />
+                  ))}
+              </div>
+          </div>
+      );
+  }
+  
+  return (
+      <div className="container mx-auto mt-8">
+          <p>No movies found.</p>
+      </div>
   );
 };
 
