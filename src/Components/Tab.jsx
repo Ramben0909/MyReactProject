@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const Tab = ({ title = "This is title", studio, year, description }) => {
+const Tab = ({ title = "This is title", studio, year, description,id}) => {
   const [showMore, setShowMore] = useState(false);
 
   const toggleShowMore = () => {
@@ -19,6 +20,9 @@ const Tab = ({ title = "This is title", studio, year, description }) => {
           {showMore ? 'Show Less' : 'Show More'}
         </button>
       )}
+      <Link to={`/movies/${id}`} className="mt-2 ml-2 text-sm bg-green-500 hover:bg-green-600 text-white py-1 px-3 rounded">
+        About
+      </Link>
     </div>
   );
 };

@@ -9,7 +9,8 @@ import NotFound from './pages/Notfound';
 const routes = createRoutesFromElements(
   <Route path='/' element={<Basic />}>
     <Route index element={<Home />} />
-    <Route path='/about' element={<About />} />  // Add routes for other pages
+    <Route path='/about' element={<About />} /> 
+    <Route path='/movies/:id' element={<About />}/> 
     <Route path='/Contacts' element={<Contacts />} />
     <Route path='*' element={<NotFound />} />
   </Route>

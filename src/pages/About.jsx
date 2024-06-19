@@ -1,26 +1,50 @@
 import React from 'react'
+import { useParams ,useLoaderData} from 'react-router-dom'
+import Aboutdef from '../Components/Aboutdef'
+import Movie from '../Components/Movie'
+import { useEffect,useState } from 'react';
 
 const About = () => {
-  return (
-    <div className="container mx-auto mt-8 p-4">
-    <h1 className="text-3xl font-bold mb-4">About Movie Search App</h1>
-    <p className="text-lg mb-4">
-      Welcome to the Movie Search App! This application allows you to search for movies and get detailed information about them, including their release dates, cast, and ratings. Whether you're a movie enthusiast looking for your next watch or just curious about a film, our app provides a seamless and intuitive experience.
-    </p>
-    <p className="text-lg mb-4">
-      Features of the Movie Search App include:
-    </p>
-    <ul className="list-disc list-inside mb-4">
-      <li>Search for movies by title</li>
-      <li>Get detailed information about each movie</li>
-      <li>Read reviews and ratings</li>
-      <li>Save your favorite movies</li>
-    </ul>
-    <p className="text-lg">
-      We hope you enjoy using our app and find it helpful in discovering new and exciting movies to watch!
-    </p>
-  </div>
-  )
-}
+  const [movie, setMovie] = useState(null);
+  const { id } = useParams();
+  // const movie = useLoaderData();
+  useEffect(() => {
+    const fetchMovie = async () => {
+      try {
+        const res = await fetch(`/api/movies/${id}`); // Replace with your API endpoint
+        if (!res.ok) {
+          throw new Error('Movie not found');
+        }
+        const data = await res.json();
+        setMovie(data);
+      } catch (err) {
+        console.error('Error fetching movie:', err);
+        setMovie(null); // Set movie to null if there's an error or if movie not found
+      }
+    };
 
-export default About
+    if (id) {
+      fetchMovie();
+    }
+  }, [id]); // Dependency array ensures fetchMovie runs when id changes
+
+  if (id && movie) {
+    return <Movie movie={movie} />;
+  } else {
+    return <Aboutdef />;
+  }
+};
+
+// const AboutMovie = async ({ params }) => {
+//   if (!params.id) {
+//     console.log("No id found");
+//     return null;
+//   } else {
+//     const res = await fetch(`/api/movies/${params.id}`);
+//     const data = await res.json();
+//     return data;
+//   }
+// };
+
+
+export default About;

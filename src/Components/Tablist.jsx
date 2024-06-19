@@ -33,13 +33,14 @@ const Tablist = () => {
       return (
           <div className="container mx-auto mt-8">
               <div className="grid grid-cols-3 gap-4">
-                  {movies.map((movie, index) => (
+                  {movies.map((movie, id) => (
                       <Tab
-                          key={movie.id}
+                          key={id}
                           title={movie.title}
                           description={movie.description}
                           studio={movie.studio}
                           year={movie.releasing_year}
+                          id = {movie.id}
                       />
                   ))}
               </div>
