@@ -1,0 +1,26 @@
+{
+    "mycart":[
+        {
+            "title": "Inception",
+            "releasing_year": 2010,
+            "studio": "Warner Bros.",
+            "description": "A skilled thief, who steals corporate secrets through dream-sharing technology, is given the inverse task of planting an idea into the mind of a C.E.O.",
+            "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"],
+            "director": "Christopher Nolan",
+            "producer": "Emma Thomas",
+            "box_office": "$829.9 million",
+            "plot": "A thief with the ability to enter people's dreams takes on the ultimate heist: planting an idea in someone's mind."
+          },
+          {
+            "title": "The Dark Knight",
+            "releasing_year": 2008,
+            "studio": "Warner Bros.",
+            "description": "Batman sets out to dismantle the remaining criminal organizations that plague Gotham City, but he soon finds himself prey to a reign of chaos unleashed by a rising criminal mastermind known as The Joker.",
+            "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+            "director": "Christopher Nolan",
+            "producer": "Emma Thomas",
+            "box_office": "$1.005 billion",
+            "plot": "Batman faces his greatest challenge yet as he battles the Joker, a criminal mastermind wreaking havoc on Gotham City."
+          }
+    ]
+}

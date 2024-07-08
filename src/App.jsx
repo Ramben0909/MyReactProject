@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import About from './pages/About'; // Add other pages here
 import Contacts from './pages/Contacts';
 import NotFound from './pages/Notfound';
+import Loginpage from './pages/Loginpage';
+import MyWatchList from './pages/MyWatchList';
 
 const routes = createRoutesFromElements(
   <Route path='/' element={<Basic />}>
@@ -12,6 +14,8 @@ const routes = createRoutesFromElements(
     <Route path='/about' element={<About />} /> 
     <Route path='/movies/:id' element={<About />}/> 
     <Route path='/Contacts' element={<Contacts />} />
+    <Route path='/login' element={<Loginpage />} />
+    <Route path='/cart' element={<MyWatchList />} />
     <Route path='*' element={<NotFound />} />
   </Route>
 );

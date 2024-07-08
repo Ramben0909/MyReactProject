@@ -2,11 +2,19 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Tab = ({ title = "This is title", studio, year, description,id}) => {
+const Tab = ({ title = "This is title", studio, year, description, id }) => {
   const [showMore, setShowMore] = useState(false);
 
   const toggleShowMore = () => {
     setShowMore(prevShowMore => !prevShowMore);
+  };
+
+  const addToWatchlist = (movieId) => {
+    // Logic to add movie to the watchlist
+    // This can be a state update, a context update, or a call to a global store
+    console.log(`Adding movie with ID ${movieId} to watchlist`);
+    // Example: If using a parent component's state, you can pass down a function via props
+    // props.addToWatchlist(movieId);
   };
 
   return (
@@ -16,19 +24,35 @@ const Tab = ({ title = "This is title", studio, year, description,id}) => {
       <h1 className="text-sm mb-2">{year}</h1>
       <p>{description.slice(0, showMore ? description.length : 50)}</p>
       {description.length > 50 && (
-        <button className="mt-2 text-sm bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded" onClick={toggleShowMore}>
+        <button
+          className="mt-2 text-sm bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded"
+          onClick={toggleShowMore}
+        >
           {showMore ? 'Show Less' : 'Show More'}
         </button>
       )}
-      <Link to={`/movies/${id}`} className="mt-2 ml-2 text-sm bg-green-500 hover:bg-green-600 text-white py-1 px-3 rounded">
+      <Link
+        to={`/movies/${id}`}
+        className="mt-2 ml-2 text-sm bg-green-500 hover:bg-green-600 text-white py-1 px-3 rounded"
+      >
         About
       </Link>
+      <button
+        className="mt-2 ml-2 text-sm bg-purple-500 hover:bg-purple-600 text-white py-1 px-3 rounded"
+        onClick={() => addToWatchlist(id)}
+      >
+        Add to Watchlist
+      </button>
     </div>
   );
 };
 
 Tab.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  studio: PropTypes.string,
+  year: PropTypes.number,
+  description: PropTypes.string,
+  id: PropTypes.number.isRequired,
 };
 
 export default Tab;

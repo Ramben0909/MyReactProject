@@ -26,6 +26,7 @@ const Navbar = () => {
           <Link to="/about" className="text-gray-300 hover:bg-gray-700 text-white px-3 py-2">About</Link>
           <Link to="/services" className="text-gray-300 hover:bg-gray-700 text-white px-3 py-2">Services</Link>
           <Link to="/contacts" className="text-gray-300 hover:bg-gray-700 text-white px-3 py-2">Contact</Link>
+          <Link to="/cart" className="text-gray-300 hover:bg-gray-700 text-white px-3 py-2">MyCart</Link>
         </div>
       </div>
       <div className="flex items-center">
