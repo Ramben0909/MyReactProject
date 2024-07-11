@@ -1,26 +1,36 @@
 import React from 'react'
 
 const Log = () => {
+  function handleSubmit(event) {
+    event.preventDefault();
+    const form = new FormData(event.target);
+    const accuisition = form.getAll('acquisition');
+    const data = Object.fromEntries(form.entries());
+    data.accuisition=accuisition;
+    console.log(data);
+  }
+
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <form className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+      <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
         <h2 className="text-2xl font-bold mb-4">Welcome on board!</h2>
         <p className="mb-6">We just need a little bit of data from you to get you started 🚀</p>
 
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-          <input id="email" type="email" name="email" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          <input id="email" type="email" name="email" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
         </div>
 
         <div className="mb-4 flex space-x-4">
           <div className="flex-1">
             <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
-            <input id="password" type="password" name="password" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+            <input id="password" type="password" name="password" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
           </div>
 
           <div className="flex-1">
             <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700">Confirm Password</label>
-            <input id="confirm-password" type="password" name="confirm-password" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+            <input id="confirm-password" type="password" name="confirm-password" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
           </div>
         </div>
 
@@ -29,18 +39,18 @@ const Log = () => {
         <div className="mb-4 flex space-x-4">
           <div className="flex-1">
             <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">First Name</label>
-            <input type="text" id="first-name" name="first-name" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+            <input type="text" id="first-name" name="first-name" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
           </div>
 
           <div className="flex-1">
             <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">Last Name</label>
-            <input type="text" id="last-name" name="last-name" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+            <input type="text" id="last-name" name="last-name" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
           </div>
         </div>
 
         <div className="mb-4">
           <label htmlFor="role" className="block text-sm font-medium text-gray-700">What best describes your role?</label>
-          <select id="role" name="role" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          <select id="role" name="role" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             <option value="student">Student</option>
             <option value="teacher">Teacher</option>
             <option value="employee">Employee</option>
@@ -71,7 +81,7 @@ const Log = () => {
 
         <div className="mb-6">
           <label htmlFor="terms-and-conditions" className="flex items-center text-sm font-medium text-gray-700">
-            <input type="checkbox" id="terms-and-conditions" name="terms" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 mr-2" />
+            <input type="checkbox" id="terms-and-conditions" name="terms" required className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 mr-2" />
             I agree to the terms and conditions
           </label>
         </div>
