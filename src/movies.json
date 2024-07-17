@@ -1,65 +1,346 @@
 {
-    "movies" : [
-        {
-            "title": "Inception",
-            "releasing_year": 2010,
-            "studio": "Warner Bros.",
-            "description": "A skilled thief, who steals corporate secrets through dream-sharing technology, is given the inverse task of planting an idea into the mind of a C.E.O."
-        },
-        {
-            "title": "The Dark Knight",
-            "releasing_year": 2008,
-            "studio": "Warner Bros.",
-            "description": "Batman sets out to dismantle the remaining criminal organizations that plague Gotham City, but he soon finds himself prey to a reign of chaos unleashed by a rising criminal mastermind known as The Joker."
-        },
-        {
-            "title": "Forrest Gump",
-            "releasing_year": 1994,
-            "studio": "Paramount Pictures",
-            "description": "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart."
-        },
-        {
-            "title": "The Matrix",
-            "releasing_year": 1999,
-            "studio": "Warner Bros.",
-            "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."
-        },
-        {
-            "title": "The Godfather",
-            "releasing_year": 1972,
-            "studio": "Paramount Pictures",
-            "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son."
-        },
-        {
-            "title": "Pulp Fiction",
-            "releasing_year": 1994,
-            "studio": "Miramax",
-            "description": "The lives of two mob hitmen, a boxer, a gangster, and his wife intertwine in four tales of violence and redemption."
-        },
-        {
-            "title": "The Shawshank Redemption",
-            "releasing_year": 1994,
-            "studio": "Columbia Pictures",
-            "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
-        },
-        {
-            "title": "Fight Club",
-            "releasing_year": 1999,
-            "studio": "20th Century Fox",
-            "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more."
-        },
-        {
-            "title": "The Lord of the Rings: The Fellowship of the Ring",
-            "releasing_year": 2001,
-            "studio": "New Line Cinema",
-            "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron."
-        },
-        {
-            "title": "Star Wars: Episode IV - A New Hope",
-            "releasing_year": 1977,
-            "studio": "20th Century Fox",
-            "description": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee, and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader."
-        }
+    "movies": [
+      {
+        "title": "Inception",
+        "releasing_year": 2010,
+        "studio": "Warner Bros.",
+        "description": "A skilled thief, who steals corporate secrets through dream-sharing technology, is given the inverse task of planting an idea into the mind of a C.E.O.",
+        "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"],
+        "director": "Christopher Nolan",
+        "producer": "Emma Thomas",
+        "box_office": "$829.9 million",
+        "plot": "A thief with the ability to enter people's dreams takes on the ultimate heist: planting an idea in someone's mind."
+      },
+      {
+        "title": "The Dark Knight",
+        "releasing_year": 2008,
+        "studio": "Warner Bros.",
+        "description": "Batman sets out to dismantle the remaining criminal organizations that plague Gotham City, but he soon finds himself prey to a reign of chaos unleashed by a rising criminal mastermind known as The Joker.",
+        "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+        "director": "Christopher Nolan",
+        "producer": "Emma Thomas",
+        "box_office": "$1.005 billion",
+        "plot": "Batman faces his greatest challenge yet as he battles the Joker, a criminal mastermind wreaking havoc on Gotham City."
+      },
+      {
+        "title": "Forrest Gump",
+        "releasing_year": 1994,
+        "studio": "Paramount Pictures",
+        "description": "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.",
+        "cast": ["Tom Hanks", "Robin Wright", "Gary Sinise"],
+        "director": "Robert Zemeckis",
+        "producer": "Wendy Finerman",
+        "box_office": "$678.2 million",
+        "plot": "An Alabama man with a low IQ experiences and influences significant historical events while trying to reunite with his childhood sweetheart."
+      },
+      {
+        "title": "The Matrix",
+        "releasing_year": 1999,
+        "studio": "Warner Bros.",
+        "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+        "cast": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
+        "director": "Lana Wachowski, Lilly Wachowski",
+        "producer": "Joel Silver",
+        "box_office": "$465.3 million",
+        "plot": "A hacker discovers the reality he lives in is a simulated reality and joins a rebellion to free humanity from its controllers."
+      },
+      {
+        "title": "The Godfather",
+        "releasing_year": 1972,
+        "studio": "Paramount Pictures",
+        "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+        "cast": ["Marlon Brando", "Al Pacino", "James Caan"],
+        "director": "Francis Ford Coppola",
+        "producer": "Albert S. Ruddy",
+        "box_office": "$287 million",
+        "plot": "The story of the powerful Italian-American crime family of Don Vito Corleone and his youngest son's transformation into a ruthless mafia boss."
+      },
+      {
+        "title": "Pulp Fiction",
+        "releasing_year": 1994,
+        "studio": "Miramax",
+        "description": "The lives of two mob hitmen, a boxer, a gangster, and his wife intertwine in four tales of violence and redemption.",
+        "cast": ["John Travolta", "Uma Thurman", "Samuel L. Jackson"],
+        "director": "Quentin Tarantino",
+        "producer": "Lawrence Bender",
+        "box_office": "$213.9 million",
+        "plot": "The intertwining stories of hitmen, a boxer, and a gangster's wife in a non-linear narrative."
+      },
+      {
+        "title": "The Shawshank Redemption",
+        "releasing_year": 1994,
+        "studio": "Columbia Pictures",
+        "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+        "cast": ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
+        "director": "Frank Darabont",
+        "producer": "Niki Marvin",
+        "box_office": "$58.3 million",
+        "plot": "Two imprisoned men form a deep bond and find solace and redemption over the years."
+      },
+      {
+        "title": "Fight Club",
+        "releasing_year": 1999,
+        "studio": "20th Century Fox",
+        "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
+        "cast": ["Brad Pitt", "Edward Norton", "Helena Bonham Carter"],
+        "director": "David Fincher",
+        "producer": "Art Linson",
+        "box_office": "$100.9 million",
+        "plot": "An insomniac office worker forms an underground fight club with a soap salesman, leading to unforeseen consequences."
+      },
+      {
+        "title": "The Lord of the Rings: The Fellowship of the Ring",
+        "releasing_year": 2001,
+        "studio": "New Line Cinema",
+        "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+        "cast": ["Elijah Wood", "Ian McKellen", "Orlando Bloom"],
+        "director": "Peter Jackson",
+        "producer": "Barrie M. Osborne",
+        "box_office": "$887.8 million",
+        "plot": "A Hobbit and eight companions embark on a quest to destroy the One Ring and save Middle-earth from the Dark Lord Sauron."
+      },
+      {
+        "title": "Star Wars: Episode IV - A New Hope",
+        "releasing_year": 1977,
+        "studio": "20th Century Fox",
+        "description": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee, and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader.",
+        "cast": ["Mark Hamill", "Harrison Ford", "Carrie Fisher"],
+        "director": "George Lucas",
+        "producer": "Gary Kurtz",
+        "box_office": "$775.4 million",
+        "plot": "A young farm boy, Luke Skywalker, embarks on a journey to save Princess Leia and defeat the evil Galactic Empire."
+      },
+      {
+        "title": "Titanic",
+        "releasing_year": 1997,
+        "studio": "20th Century Fox",
+        "description": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+        "cast": ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"],
+        "director": "James Cameron",
+        "producer": "James Cameron",
+        "box_office": "$2.202 billion",
+        "plot": "A romance unfolds between a wealthy young woman and a poor artist aboard the ill-fated Titanic."
+      },
+      {
+        "title": "The Avengers",
+        "releasing_year": 2012,
+        "studio": "Marvel Studios",
+        "description": "Earth's mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity.",
+        "cast": ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+        "director": "Joss Whedon",
+        "producer": "Kevin Feige",
+        "box_office": "$1.519 billion",
+        "plot": "A group of superheroes team up to save the world from an extraterrestrial threat."
+      },
+      {
+        "title": "Jurassic Park",
+        "releasing_year": 1993,
+        "studio": "Universal Pictures",
+        "description": "During a preview tour, a theme park suffers a major power breakdown that allows its cloned dinosaur exhibits to run amok.",
+        "cast": ["Sam Neill", "Laura Dern", "Jeff Goldblum"],
+        "director": "Steven Spielberg",
+        "producer": "Kathleen Kennedy",
+        "box_office": "$1.046 billion",
+        "plot": "A theme park showcasing genetically-engineered dinosaurs turns deadly when the creatures escape their enclosures."
+      },
+      {
+        "title": "The Lion King",
+        "releasing_year": 1994,
+        "studio": "Disney",
+        "description": "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
+        "cast": ["Matthew Broderick", "Jeremy Irons", "James Earl Jones"],
+        "director": "Roger Allers",
+        "producer": "Don Hahn",
+        "box_office": "$968.5 million",
+        "plot": "A young lion prince flees his kingdom after the murder of his father, only to learn the true meaning of responsibility and bravery."
+      },
+      {
+        "title": "Gladiator",
+        "releasing_year": 2000,
+        "studio": "DreamWorks Pictures",
+        "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+        "cast": ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
+        "director": "Ridley Scott",
+        "producer": "Douglas Wick",
+        "box_office": "$460.5 million",
+        "plot": "A betrayed Roman general seeks revenge against the corrupt emperor who murdered his family."
+      },
+      {
+        "title": "Interstellar",
+        "releasing_year": 2014,
+        "studio": "Paramount Pictures",
+        "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+        "cast": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
+        "director": "Christopher Nolan",
+        "producer": "Emma Thomas",
+        "box_office": "$701.8 million",
+        "plot": "A team of explorers travels through a wormhole to find a new habitable planet for humanity."
+      },
+      {
+        "title": "Avatar",
+        "releasing_year": 2009,
+        "studio": "20th Century Fox",
+        "description": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+        "cast": ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver"],
+        "director": "James Cameron",
+        "producer": "James Cameron",
+        "box_office": "$2.847 billion",
+        "plot": "A Marine on an alien planet must choose between following orders and protecting the native inhabitants."
+      },
+      {
+        "title": "The Silence of the Lambs",
+        "releasing_year": 1991,
+        "studio": "Orion Pictures",
+        "description": "A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.",
+        "cast": ["Jodie Foster", "Anthony Hopkins", "Lawrence A. Bonney"],
+        "director": "Jonathan Demme",
+        "producer": "Kenneth Utt",
+        "box_office": "$272.7 million",
+        "plot": "An F.B.I. cadet seeks the help of a manipulative cannibal to catch a serial killer who skins his victims."
+      },
+      {
+        "title": "Schindler's List",
+        "releasing_year": 1993,
+        "studio": "Universal Pictures",
+        "description": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+        "cast": ["Liam Neeson", "Ben Kingsley", "Ralph Fiennes"],
+        "director": "Steven Spielberg",
+        "producer": "Steven Spielberg",
+        "box_office": "$322.2 million",
+        "plot": "The true story of Oskar Schindler, who saved over a thousand Jews from the Holocaust by employing them in his factories."
+      },
+      {
+        "title": "Goodfellas",
+        "releasing_year": 1990,
+        "studio": "Warner Bros.",
+        "description": "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito.",
+        "cast": ["Robert De Niro", "Ray Liotta", "Joe Pesci"],
+        "director": "Martin Scorsese",
+        "producer": "Irwin Winkler",
+        "box_office": "$46.8 million",
+        "plot": "The rise and fall of Henry Hill as he becomes involved in organized crime."
+      },
+      {
+        "title": "The Departed",
+        "releasing_year": 2006,
+        "studio": "Warner Bros.",
+        "description": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.",
+        "cast": ["Leonardo DiCaprio", "Matt Damon", "Jack Nicholson"],
+        "director": "Martin Scorsese",
+        "producer": "Brad Pitt",
+        "box_office": "$291.5 million",
+        "plot": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston."
+      },
+      {
+        "title": "The Green Mile",
+        "releasing_year": 1999,
+        "studio": "Warner Bros.",
+        "description": "The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.",
+        "cast": ["Tom Hanks", "Michael Clarke Duncan", "David Morse"],
+        "director": "Frank Darabont",
+        "producer": "David Valdes",
+        "box_office": "$286.8 million",
+        "plot": "The story of a death row corrections officer who witnesses supernatural events surrounding an inmate with a miraculous gift."
+      },
+      {
+        "title": "The Wolf of Wall Street",
+        "releasing_year": 2013,
+        "studio": "Paramount Pictures",
+        "description": "Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption, and the federal government.",
+        "cast": ["Leonardo DiCaprio", "Jonah Hill", "Margot Robbie"],
+        "director": "Martin Scorsese",
+        "producer": "Leonardo DiCaprio",
+        "box_office": "$392 million",
+        "plot": "The rise and fall of Jordan Belfort, a stockbroker who engages in rampant corruption and fraud."
+      },
+      {
+        "title": "Alien",
+        "releasing_year": 1979,
+        "studio": "20th Century Fox",
+        "description": "After a space merchant vessel receives an unknown transmission as a distress call, one of the crew is attacked by a mysterious life form, and they soon realize that its life cycle has merely begun.",
+        "cast": ["Sigourney Weaver", "Tom Skerritt", "John Hurt"],
+        "director": "Ridley Scott",
+        "producer": "Gordon Carroll",
+        "box_office": "$106.3 million",
+        "plot": "The crew of a space vessel encounters a deadly alien life form after receiving a distress call."
+      },
+      {
+        "title": "Saving Private Ryan",
+        "releasing_year": 1998,
+        "studio": "DreamWorks Pictures",
+        "description": "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.",
+        "cast": ["Tom Hanks", "Matt Damon", "Tom Sizemore"],
+        "director": "Steven Spielberg",
+        "producer": "Steven Spielberg",
+        "box_office": "$481.8 million",
+        "plot": "A group of U.S. soldiers risk their lives to find and bring home a soldier whose brothers were killed in action."
+      },
+      {
+        "title": "Indiana Jones and the Last Crusade",
+        "releasing_year": 1989,
+        "studio": "Paramount Pictures",
+        "description": "In 1938, after his father goes missing while pursuing the Holy Grail, Indiana Jones finds himself up against the Nazis again to stop them from obtaining its powers.",
+        "cast": ["Harrison Ford", "Sean Connery", "Denholm Elliott"],
+        "director": "Steven Spielberg",
+        "producer": "George Lucas",
+        "box_office": "$474.2 million",
+        "plot": "Indiana Jones teams up with his estranged father to find the Holy Grail before the Nazis."
+      },
+      {
+        "title": "The Prestige",
+        "releasing_year": 2006,
+        "studio": "Warner Bros.",
+        "description": "After a tragic accident, two stage magicians engage in a battle to create the ultimate illusion while sacrificing everything they have to outwit each other.",
+        "cast": ["Hugh Jackman", "Christian Bale", "Michael Caine"],
+        "director": "Christopher Nolan",
+        "producer": "Emma Thomas",
+        "box_office": "$109.7 million",
+        "plot": "Two magicians become bitter rivals after a tragic accident and compete to create the ultimate stage illusion."
+      },
+      {
+        "title": "The Social Network",
+        "releasing_year": 2010,
+        "studio": "Columbia Pictures",
+        "description": "Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, but is later sued by two brothers who claimed he stole their idea, and the co-founder who was later squeezed out of the business.",
+        "cast": ["Jesse Eisenberg", "Andrew Garfield", "Justin Timberlake"],
+        "director": "David Fincher",
+        "producer": "Scott Rudin",
+        "box_office": "$224.9 million",
+        "plot": "The story of Facebook's founding and the lawsuits that followed its success."
+      },
+      {
+        "title": "Toy Story",
+        "releasing_year": 1995,
+        "studio": "Pixar Animation Studios",
+        "description": "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.",
+        "cast": ["Tom Hanks", "Tim Allen", "Don Rickles"],
+        "director": "John Lasseter",
+        "producer": "Bonnie Arnold",
+        "box_office": "$373.6 million",
+        "plot": "A cowboy doll feels threatened and jealous when a new spaceman figure becomes the top toy in a boy's room."
+      },
+      {
+        "title": "The Incredibles",
+        "releasing_year": 2004,
+        "studio": "Pixar Animation Studios",
+        "description": "A family of undercover superheroes, while trying to live the quiet suburban life, are forced into action to save the world.",
+        "cast": ["Craig T. Nelson", "Holly Hunter", "Samuel L. Jackson"],
+        "director": "Brad Bird",
+        "producer": "John Walker",
+        "box_office": "$633 million",
+        "plot": "A family of undercover superheroes is forced into action to save the world."
+      },
+      {
+        "title": "Finding Nemo",
+        "releasing_year": 2003,
+        "studio": "Pixar Animation Studios",
+        "description": "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.",
+        "cast": ["Albert Brooks", "Ellen DeGeneres", "Alexander Gould"],
+        "director": "Andrew Stanton",
+        "producer": "Graham Walters",
+        "box_office": "$940.3 million",
+        "plot": "A clownfish embarks on a journey to find his son, who was captured and taken to Sydney."
+      }
     ]
-    
-}
+  }
+  
