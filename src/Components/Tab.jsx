@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Tab = ({ title, studio, year, description, id, poster }) => {
   const [showMore, setShowMore] = useState(false);
@@ -26,6 +27,10 @@ const Tab = ({ title, studio, year, description, id, poster }) => {
       <p className="text-sm mb-2">{year}</p>
       <p>{description.slice(0, showMore ? description.length : 50)}</p>
       {description.length > 50 && (
+        <button
+          className="mt-2 text-sm bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded"
+          onClick={toggleShowMore}
+        >
         <button
           className="mt-2 text-sm bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded"
           onClick={toggleShowMore}

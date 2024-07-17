@@ -10,6 +10,8 @@
     "preview": "vite preview",
     "server:movies": "json-server --watch src/movies.json --port 5000",
     "server:mycart": "json-server --watch src/mycart.json --port 5009"
+    "server:movies": "json-server --watch src/movies.json --port 5000",
+    "server:mycart": "json-server --watch src/mycart.json --port 5009"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",

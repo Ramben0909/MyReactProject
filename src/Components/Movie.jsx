@@ -5,7 +5,6 @@ const Movie = ({ movie }) => {
   return (
     <div className="container mx-auto mt-8 p-4">
       <h1 className="text-3xl font-bold mb-4">{movie.title}</h1>
-      <img src={movie.poster} alt={`${movie.title} Poster`} className="mb-4 w-full h-auto" />
       <p className="text-lg mb-4">
         <strong>Release Year:</strong> {movie.releasing_year}
       </p>
