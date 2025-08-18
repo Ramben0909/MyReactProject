@@ -1,11 +1,9 @@
-import React from 'react'
-
-const Aboutdef = () => {
+ const Aboutdef = () => {
   return (
     <div className="container mx-auto mt-8 p-4">
     <h1 className="text-3xl font-bold mb-4">About Movie Search App</h1>
     <p className="text-lg mb-4">
-      Welcome to the Movie Search App! This application allows you to search for movies and get detailed information about them, including their release dates, cast, and ratings. Whether you're a movie enthusiast looking for your next watch or just curious about a film, our app provides a seamless and intuitive experience.
+      Welcome to the Movie Search App! This application allows you to search for movies and get detailed information about them, including their release dates, cast, and ratings. Whether you are a movie enthusiast looking for your next watch or just curious about a film, our app provides a seamless and intuitive experience.
     </p>
     <p className="text-lg mb-4">
       Features of the Movie Search App include:

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Route, RouterProvider, createRoutesFromElements, createBrowserRouter } from 'react-router-dom';
+ import { Route, RouterProvider, createRoutesFromElements, createBrowserRouter } from 'react-router-dom';
 import Basic from './layout/Basic';
 import Home from './pages/Home';
 import About from './pages/About'; // Add other pages here
