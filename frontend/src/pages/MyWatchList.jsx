@@ -1,4 +1,3 @@
- import React from 'react'
  import Mycart from  '../Components/Mycart'
  
  const MyWatchList = () => {

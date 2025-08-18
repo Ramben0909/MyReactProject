@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Tab from './Tab'; // Import Tab component
 import Spinner from './Spinner'; // Import Spinner component (optional)
@@ -13,6 +13,7 @@ const Tablist = () => {
     try {
       const res = await axios.get(`https://www.omdbapi.com/?s=${query}&apikey=2eed2652`);
       if (res.data.Search) {
+        console.log(res.data.Search);
         setMovies(res.data.Search);
       } else {
         setMovies([]);
@@ -32,7 +33,7 @@ const Tablist = () => {
   };
 
   useEffect(() => {
-    fetchMovies(''); 
+    fetchMovies('movie'); 
   }, []);
 
   return (

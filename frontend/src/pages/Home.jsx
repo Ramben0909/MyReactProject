@@ -1,4 +1,3 @@
-import React from 'react';
 import Tablist from '../Components/Tablist';
 
 const Home = () => {
