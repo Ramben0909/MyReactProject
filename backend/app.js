@@ -1,15 +1,11 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-const authRoutes = require('./routes/authroutes');
+import express from 'express';
+// Remove this line: import connectDB from './src/config/db.js';
+import routes from './src/routes/routes.js';
 
-dotenv.config();
-connectDB();
+// Remove this line: connectDB();
 
 const app = express();
-
 app.use(express.json());
-app.use('/api/auth', authRoutes);
+app.use('/api/v1', routes);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+export default app;
