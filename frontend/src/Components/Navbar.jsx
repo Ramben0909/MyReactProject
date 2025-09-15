@@ -1,40 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Assuming you're using react-router-dom
+import { Link } from "react-router-dom";
+import { useAuth } from "../Context/useAuth";
 
 const Navbar = () => {
-  const [isHovered, setIsHovered] = React.useState(false);
-
-  const handleHover = () => {
-    setIsHovered(true);
-  };
-
-  const handleLeave = () => {
-    setIsHovered(false);
-  };
+  const { user } = useAuth();
 
   return (
-    <nav
-      className={`bg-gray-800 p-4 flex justify-between items-center ${isHovered ? 'h-14' : 'h-10'}`} // Dynamic height based on hover state
-      onMouseEnter={handleHover}
-      onMouseLeave={handleLeave}
-      // Add a unique ID for easier debugging (optional)
-      id="my-navbar"
-    >
-      <div className="container mx-auto flex justify-start items-center">
-        <div className="flex items-center">
-          <Link to="/" className="text-gray-300 hover:bg-gray-700 text-white px-3 py-2">Home</Link>
-          <Link to="/about" className="text-gray-300 hover:bg-gray-700 text-white px-3 py-2">About</Link>
-          <Link to="/services" className="text-gray-300 hover:bg-gray-700 text-white px-3 py-2">Services</Link>
-          <Link to="/contacts" className="text-gray-300 hover:bg-gray-700 text-white px-3 py-2">Contact</Link>
-          <Link to="/cart" className="text-gray-300 hover:bg-gray-700 text-white px-3 py-2">MyWatchList</Link>
-        </div>
+    <nav className="flex justify-between items-center px-6 py-3 bg-gray-800 text-white">
+      <div className="flex gap-6">
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contacts">Contacts</Link>
+        <Link to="/cart">My Watchlist</Link>
       </div>
-      {/* <div className="flex items-center">
-        <Link to="/login" className="text-gray-300 hover:bg-gray-700 text-white px-3 py-2">Log In</Link>
-      </div> */}
+
+      <div className="ml-auto">
+        {user ? (
+          <Link
+            to="/profile"
+            className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-700"
+          >
+            {user.name}
+          </Link>
+        ) : (
+          <div className="flex gap-3">
+            <Link
+              to="/signup"
+              className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-700"
+            >
+              Signup/Login
+            </Link>
+          </div>
+        )}
+      </div>
     </nav>
   );
-  
 };
 
 export default Navbar;

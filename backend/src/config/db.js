@@ -1,14 +1,19 @@
-// In your connectDB file
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    console.log('connectDB called from:', new Error().stack);
-    console.log('MONGO_URI:', process.env.MONGO_URI);
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log('MongoDB connected');
+    const conn = await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    console.log(`✅ MongoDB Connected: ${conn.connection.host}/${conn.connection.name}`);
+
+    // List collections to confirm users & wishlists exist
+    const collections = await mongoose.connection.db.listCollections().toArray();
+    console.log("📂 Collections in DB:", collections.map(c => c.name));
   } catch (err) {
-    console.error(err.message);
+    console.error("❌ MongoDB connection error:", err.message);
     process.exit(1);
   }
 };
