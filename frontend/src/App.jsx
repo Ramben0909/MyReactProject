@@ -11,7 +11,7 @@ import Contacts from "./pages/Contacts";
 import NotFound from "./pages/Notfound";
 import MyWatchList from "./pages/MyWatchList";
 import SignupPage from "./pages/SignupPage";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/Loginpage";
 import ProfilePage from "./pages/ProfilePage";
 import { Toaster } from "react-hot-toast"; // ✅ import Toaster
 
