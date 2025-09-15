@@ -1,98 +1,82 @@
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Context/useAuth";
 
 const Log = () => {
-  function handleSubmit(event) {
-    event.preventDefault();
-    const form = new FormData(event.target);
-    const accuisition = form.getAll('acquisition');
-    const data = Object.fromEntries(form.entries());
-    data.accuisition=accuisition;
-    console.log(data);
+  const { login, user } = useAuth();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  if (user) {
+    // ✅ Already logged in → show profile
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+          <h2 className="text-2xl font-bold mb-4">Profile</h2>
+          <p><strong>Name:</strong> {user.name || "N/A"}</p>
+          <p><strong>Email:</strong> {user.email}</p>
+        </div>
+      </div>
+    );
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await login(email, password);
+    if (res.success) {
+      alert("Login successful!");
+      navigate("/"); // redirect to homepage
+    } else {
+      alert(res.message || "Login failed");
+    }
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
-        <h2 className="text-2xl font-bold mb-4">Welcome on board!</h2>
-        <p className="mb-6">We just need a little bit of data from you to get you started 🚀</p>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md"
+      >
+        <h2 className="text-2xl font-bold mb-4">Log In</h2>
 
         <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-          <input id="email" type="email" name="email" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-        </div>
-
-        <div className="mb-4 flex space-x-4">
-          <div className="flex-1">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
-            <input id="password" type="password" name="password" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-          </div>
-
-          <div className="flex-1">
-            <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700">Confirm Password</label>
-            <input id="confirm-password" type="password" name="confirm-password" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-          </div>
-        </div>
-
-        <hr className="my-6" />
-
-        <div className="mb-4 flex space-x-4">
-          <div className="flex-1">
-            <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">First Name</label>
-            <input type="text" id="first-name" name="first-name" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-          </div>
-
-          <div className="flex-1">
-            <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">Last Name</label>
-            <input type="text" id="last-name" name="last-name" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-          </div>
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="role" className="block text-sm font-medium text-gray-700">What best describes your role?</label>
-          <select id="role" name="role" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-            <option value="student">Student</option>
-            <option value="teacher">Teacher</option>
-            <option value="employee">Employee</option>
-            <option value="founder">Founder</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <fieldset className="mb-6">
-          <legend className="text-base font-medium text-gray-900">How did you find us?</legend>
-          <div className="mt-4 space-y-4">
-            <div className="flex items-center">
-              <input type="checkbox" id="google" name="acquisition" value="google" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
-              <label htmlFor="google" className="ml-3 block text-sm font-medium text-gray-700">Google</label>
-            </div>
-
-            <div className="flex items-center">
-              <input type="checkbox" id="friend" name="acquisition" value="friend" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
-              <label htmlFor="friend" className="ml-3 block text-sm font-medium text-gray-700">Referred by friend</label>
-            </div>
-
-            <div className="flex items-center">
-              <input type="checkbox" id="other" name="acquisition" value="other" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
-              <label htmlFor="other" className="ml-3 block text-sm font-medium text-gray-700">Other</label>
-            </div>
-          </div>
-        </fieldset>
-
-        <div className="mb-6">
-          <label htmlFor="terms-and-conditions" className="flex items-center text-sm font-medium text-gray-700">
-            <input type="checkbox" id="terms-and-conditions" name="terms" required className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 mr-2" />
-            I agree to the terms and conditions
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            Email
           </label>
+          <input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm"
+          />
         </div>
 
-        <div className="flex justify-end space-x-4">
-          <button type="reset" className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">Reset</button>
-          <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign up</button>
+        <div className="mb-4">
+          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm"
+          />
         </div>
+
+        <button
+          type="submit"
+          className="w-full py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+        >
+          Log In
+        </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Log
+export default Log;

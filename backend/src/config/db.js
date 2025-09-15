@@ -1,14 +1,19 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
+    const conn = await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log('MongoDB connected');
+
+    console.log(`✅ MongoDB Connected: ${conn.connection.host}/${conn.connection.name}`);
+
+    // List collections to confirm users & wishlists exist
+    const collections = await mongoose.connection.db.listCollections().toArray();
+    console.log("📂 Collections in DB:", collections.map(c => c.name));
   } catch (err) {
-    console.error(err.message);
+    console.error("❌ MongoDB connection error:", err.message);
     process.exit(1);
   }
 };
