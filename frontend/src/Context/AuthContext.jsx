@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 import { AuthContext } from "./useAuth";
 
+// ✅ use env variable from Vite
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
+
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
@@ -14,7 +17,7 @@ const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const res = await fetch("http://localhost:5078/api/v1/auth/login", {
+      const res = await fetch(`${API_BASE}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

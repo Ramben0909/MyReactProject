@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { WishlistContext } from "./useWishlist";
 import { useAuth } from "./useAuth";
 
-const API_BASE = "http://localhost:5078/api/v1";
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
+
 
 const WishlistProvider = ({ children }) => {
   const { user } = useAuth();

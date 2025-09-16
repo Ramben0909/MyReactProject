@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import toast from "react-hot-toast";  // ✅ import toast
+
+// ✅ use env variable
+const API_BASE = import.meta.env.VITE_BACKEND_URL;
 
 const SignupPage = () => {
   const [name, setName] = useState("");
@@ -14,7 +18,7 @@ const SignupPage = () => {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:5078/api/v1/auth/signup", {
+      const res = await fetch(`${API_BASE}/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
@@ -26,11 +30,14 @@ const SignupPage = () => {
         throw new Error(data.message || "Signup failed");
       }
 
-      // ✅ Alert + Redirect
-      alert("Signup successful! Please login.");
-      navigate("/login");
+      // ✅ Show success toast instead of alert
+      toast.success("Signup successful! Please login.");
+
+      // redirect after short delay so user sees toast
+      setTimeout(() => navigate("/login"), 1000);
 
     } catch (err) {
+      toast.error(err.message || "Signup failed"); // ✅ error toast
       setError(err.message);
     }
   };
