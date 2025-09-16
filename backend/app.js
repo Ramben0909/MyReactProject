@@ -4,13 +4,23 @@ import cors from 'cors';
 import routes from './src/routes/routes.js';
 
 const app = express();
-const frontend = process.env.FRONTEND;
+const allowedOrigins = [
+  "http://localhost:5173",   // vite dev
+  "http://localhost:3001",   // fallback
+  "https://my-react-project-chi-eight.vercel.app",
+];
 
-console.log("✅ Allowed frontend:", frontend);
+console.log("✅ Allowed frontend:",allowedOrigins);
 
 app.use(
   cors({
-    origin: frontend || "http://localhost:3001", // fallback for local dev
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin.replace(/\/$/, ""))) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS: " + origin));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
