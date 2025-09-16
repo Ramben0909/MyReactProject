@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../Context/useAuth";
+import toast from "react-hot-toast"; // ✅ import toast
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -17,9 +18,11 @@ const LoginPage = () => {
     const success = await login(email, password);
 
     if (success) {
-      alert("Login successful!");
-      navigate("/");
+      // ✅ show success toast instead of alert
+      toast.success("Login successful!");
+      setTimeout(() => navigate("/"), 1000); // short delay so toast shows
     } else {
+      toast.error("Invalid email or password"); // ✅ error toast
       setError("Invalid email or password");
     }
   };
