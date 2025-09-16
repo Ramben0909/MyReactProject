@@ -7,7 +7,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",   // vite dev
   "http://localhost:3001",   // fallback
-  "https://my-react-project-chi-eight.vercel.app/api/v1",
+  "https://my-react-project-chi-eight.vercel.app",
 ];
 
 console.log("✅ Allowed frontend:",allowedOrigins);
