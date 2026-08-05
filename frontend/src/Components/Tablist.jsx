@@ -69,22 +69,29 @@ const Tablist = () => {
     fetchPopular();
   }, []);
 
+  // ✅ MODIFIED: Added streaming providers fetch to the Promise.all
   const fetchMovieDetails = async (id) => {
     try {
-      const [detailsRes, creditsRes, videoRes] = await Promise.all([
+      const [detailsRes, creditsRes, videoRes, providersRes] = await Promise.all([
         axios.get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`),
         axios.get(`${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`),
         axios.get(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`),
+        axios.get(`${BASE_URL}/movie/${id}/watch/providers?api_key=${API_KEY}`)
       ]);
 
       const trailer = videoRes.data.results.find(
         (vid) => vid.type === "Trailer" && vid.site === "YouTube"
       );
 
+      // Extract streaming data for India (IN) first, fallback to US if not available
+      const providerData = providersRes.data.results?.IN || providersRes.data.results?.US || {};
+      const streamingProviders = providerData.flatrate || [];
+
       setSelectedMovie({
         ...detailsRes.data,
         cast: creditsRes.data.cast.slice(0, 5),
         trailerKey: trailer ? trailer.key : null,
+        providers: streamingProviders, // Added providers to state
       });
     } catch (err) {
       console.error("Error fetching movie details:", err);
@@ -93,21 +100,21 @@ const Tablist = () => {
   };
 
   const handleAddToWishlist = async (movie) => {
-  if (!user) {
-    toast.error("You must be logged in ❌");
-    return;
-  }
+    if (!user) {
+      toast.error("You must be logged in ❌");
+      return;
+    }
 
-  const result = await addToWishlist(movie);
+    const result = await addToWishlist(movie);
 
-  if (result.status === "exists") {
-    toast.error(`${movie.title} is already in your wishlist ⚠️`);
-  } else if (result.status === "added") {
-    toast.success(`${movie.title} added to wishlist 🎉`);
-  } else if (result.status === "error") {
-    toast.error(`Failed to add: ${result.error}`);
-  }
-};
+    if (result.status === "exists") {
+      toast.error(`${movie.title} is already in your wishlist ⚠️`);
+    } else if (result.status === "added") {
+      toast.success(`${movie.title} added to wishlist 🎉`);
+    } else if (result.status === "error") {
+      toast.error(`Failed to add: ${result.error}`);
+    }
+  };
 
   return (
     <div className="container mx-auto mt-8">
@@ -152,7 +159,7 @@ const Tablist = () => {
       {/* Modal for movie details */}
       {selectedMovie && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg max-w-4xl w-full p-6 relative">
+          <div className="bg-white rounded-lg shadow-lg max-w-4xl w-full p-6 relative max-h-[90vh] overflow-y-auto">
             {/* Close Button */}
             <button
               onClick={() => setSelectedMovie(null)}
@@ -169,7 +176,7 @@ const Tablist = () => {
                     : "https://via.placeholder.com/300x450?text=No+Image"
                 }
                 alt={selectedMovie.title}
-                className="rounded-lg shadow-md"
+                className="rounded-lg shadow-md md:w-1/3 object-cover"
               />
               <div className="flex-1">
                 <h2 className="text-2xl font-bold mb-2">{selectedMovie.title}</h2>
@@ -192,6 +199,52 @@ const Tablist = () => {
                   )}
                 </ul>
 
+                {/* Where to Watch (Streaming or Theater Fallback) */}
+                <div className="mb-4">
+                  <h3 className="text-lg font-semibold">Where to Watch:</h3>
+                  
+                  {selectedMovie.providers?.length > 0 ? (
+                    <div className="flex flex-wrap gap-3 mt-2">
+                      {selectedMovie.providers.map((provider) => (
+                        <div key={provider.provider_id} className="flex flex-col items-center">
+                          <img
+                            src={`${IMAGE_BASE}/w92${provider.logo_path}`}
+                            alt={provider.provider_name}
+                            title={provider.provider_name}
+                            className="w-10 h-10 rounded-xl shadow-sm border border-gray-200"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="mt-2 flex flex-col sm:flex-row gap-3">
+                      <p className="text-sm text-gray-500 flex items-center">
+                        Not streaming right now. It might be in theaters!
+                      </p>
+                      
+                      {/* Google Showtimes Deep Link */}
+                      <a
+                        href={`https://www.google.com/search?q=${encodeURIComponent(selectedMovie.title + " movie showtimes near me")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1.5 bg-blue-100 text-blue-700 text-sm font-medium rounded hover:bg-blue-200 transition text-center"
+                      >
+                        🎟️ Theaters Near Me
+                      </a>
+
+                      {/* BookMyShow Deep Link */}
+                      <a
+                        href={`https://in.bookmyshow.com/explore/movies?q=${encodeURIComponent(selectedMovie.title)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1.5 bg-red-100 text-red-700 text-sm font-medium rounded hover:bg-red-200 transition text-center"
+                      >
+                        🍿 BookMyShow
+                      </a>
+                    </div>
+                  )}
+                </div>
+
                 {/* Trailer / Preview */}
                 {selectedMovie.trailerKey ? (
                   <div className="mt-4">
@@ -212,14 +265,14 @@ const Tablist = () => {
                     className="rounded-lg mt-4"
                   />
                 ) : (
-                  <p>No preview available.</p>
+                  <p className="mt-4 text-gray-500">No preview available.</p>
                 )}
 
                 {/* Add to Wishlist button */}
                 {user && (
                   <button
                     onClick={() => handleAddToWishlist(selectedMovie)}
-                    className="mt-6 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                    className="mt-6 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 w-full md:w-auto"
                   >
                     ➕ Add to Wishlist
                   </button>

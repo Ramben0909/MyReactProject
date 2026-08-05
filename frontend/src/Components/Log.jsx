@@ -29,6 +29,7 @@ const Log = () => {
       navigate("/"); // redirect to homepage
     } else {
       alert(res.message || "Login failed");
+      console.log("Login failed:", res.message);
     }
   };
 
