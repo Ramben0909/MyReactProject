@@ -14,13 +14,12 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/Loginpage";
 import ProfilePage from "./pages/ProfilePage";
 import { Toaster } from "react-hot-toast"; // ✅ import Toaster
-import MovieStreamer from "./pages/MovieStreamer";
+ 
 
 const routes = createRoutesFromElements(
   <Route path="/" element={<Basic />}>
     <Route path="/" index element={<Home />} />
     <Route path="/about" element={<About />} />
-    <Route path="/movies" element={<MovieStreamer />} />
     <Route path="/movies/:id" element={<About />} />
     <Route path="/contacts" element={<Contacts />} />
     <Route path="/signup" element={<SignupPage />} />
