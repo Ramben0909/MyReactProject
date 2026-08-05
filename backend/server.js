@@ -1,18 +1,10 @@
-// server.js
-import dotenv from 'dotenv';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-
-// Configure dotenv IMMEDIATELY
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-dotenv.config({ path: join(__dirname, '.env') });
-
-// Now import modules that depend on env vars
+import 'dotenv/config'; 
+import dns from 'node:dns';  
 import app from './app.js';
 import connectDB from './src/config/db.js';
 
-// Connect to database
+dns.setServers(['8.8.8.8', '1.1.1.1']);
+
 connectDB();
 
 const PORT = process.env.PORT || 5000;
