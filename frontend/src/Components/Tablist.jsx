@@ -12,7 +12,6 @@ const Tablist = () => {
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedMovie, setSelectedMovie] = useState(null);
-
   const { addToWishlist } = useWishlist();
   const { user } = useAuth();
 
